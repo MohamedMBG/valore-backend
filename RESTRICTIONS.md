@@ -10,6 +10,15 @@ You are working on the **backend only**.
 
 Your role is to build a clean, educational, and well-structured Spring Boot backend aligned with the JEE academic project.
 
+This project is part of:
+
+**Contrôle JEE 2025-2026 — Semestre 2 (4DDSIR)**
+
+You must build a **web platform** allowing users to:
+- Register
+- Login
+- Interact with domain entities (products, content, services…)
+
 You must NOT turn this project into:
 - a complex SaaS platform
 - an enterprise-grade architecture
@@ -44,6 +53,7 @@ You are allowed to:
 - Configure the database
 - Add validation, error handling, mapping, and CORS
 - Add pedagogical comments required by the project
+- Implement required features (auth, CRUD, interactions, cart, etc.)
 - Improve code structure (only if it remains simple and consistent)
 
 ---
@@ -59,7 +69,7 @@ You must NOT:
 - Add Kubernetes
 - Implement OAuth, SSO, or distributed architectures
 - Add unnecessary design patterns just to “look professional”
-- Add features outside the project scope
+- Add features outside the academic project scope
 - Rename the entire project without strong justification
 - Replace large parts of the existing code without reason
 
@@ -71,11 +81,14 @@ You must use:
 
 - Java 17
 - Spring Boot 3
-- Spring Web
+- Spring Web (Spring MVC)
 - Spring Data JPA
 - Spring Security
 - Maven
 - Relational database (H2 or PostgreSQL)
+
+Optional:
+- Thymeleaf or React (frontend — NOT handled here)
 
 Do NOT migrate to another stack.
 
@@ -129,7 +142,7 @@ Spring Security is mandatory.
 Security must include:
 
 - authentication
-- role-based authorization
+- role-based authorization (USER / ADMIN)
 - route protection
 - password encoding
 
@@ -137,27 +150,32 @@ Do NOT disable or bypass security “temporarily” unless explicitly instructed
 
 ---
 
-## 9. Pedagogical Requirements
+## 9. Pedagogical Requirements (CRITICAL)
 
-This project must include comments explaining:
+This is a **mandatory academic requirement**.
 
-- how features would be implemented WITHOUT Spring:
-    - Servlets
-    - JSP
-    - JDBC / manual JPA
-    - manual filters and sessions
+For EACH feature, you must add comments explaining:
 
-- differences between traditional Java EE and Spring
+### 🔹 Without Spring (Traditional JEE)
+- Servlets
+- JSP
+- JDBC / manual JPA
+- Manual session handling
+- Manual security filters
 
-- advantages of Spring:
-    - reduced boilerplate
-    - built-in security
-    - easier maintenance
+### 🔹 Comparison
+- Difference between traditional approach and Spring
 
-These comments must be:
-- relevant
+### 🔹 Spring Advantages
+- Less boilerplate
+- Dependency Injection
+- Built-in security
+- Better maintainability
+
+Comments must be:
 - concise
-- placed in appropriate parts of the code
+- relevant
+- placed near the implementation
 
 ---
 
@@ -169,22 +187,69 @@ These comments must be:
 - Use consistent naming
 - Do not create unnecessary tables
 
-If a relationship exists → model it properly with JPA.
+If a relationship exists → model it properly:
+- `@OneToMany`
+- `@ManyToMany`
+- `@ManyToOne`
 
 ---
 
-## 11. Feature Requirements
+## 11. Mandatory Features (Academic Requirements)
 
-The backend must include:
+The backend MUST include:
 
-1. Users and roles
-2. Authentication
-3. Main CRUD module
-4. Search and filtering
-5. User interactions
-6. Cart and order (or equivalent domain logic)
+### 1. Authentication & Users
+- User registration
+- Secure login
+- Roles: USER / ADMIN
 
-Do NOT skip any required part.
+📌 Must include comments about:
+- session handling in Servlets
+- manual security filters
+- comparison with Spring Security
+
+---
+
+### 2. Main CRUD Module
+- Create / Read / Update / Delete
+
+📌 Must include comparison:
+- JDBC / DAO / SQL
+- vs Spring Data JPA (Repositories)
+
+---
+
+### 3. Search & Filtering
+- Dynamic queries
+
+📌 Must include:
+- SQL queries in DAO
+- vs Spring Data:
+  - query methods
+  - `@Query`
+
+---
+
+### 4. User Interaction
+- Favorites
+- Ratings
+- Comments
+
+📌 Must include:
+- manual join tables in JDBC
+- vs JPA relationships
+
+---
+
+### 5. Cart & Orders (or equivalent logic)
+- Add to cart
+- Validate order
+
+📌 Must include:
+- session-based cart (Servlet)
+- vs Spring:
+  - service layer
+  - session or database storage
 
 ---
 
